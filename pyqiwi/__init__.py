@@ -48,7 +48,7 @@ class Wallet:
         Доступные счета для создания
     """
 
-    def __init__(self, token, number=None, contract_info=True, auth_info=True, user_info=True, proxy=None):
+    def __init__(self, token, proxy, number=None, contract_info=True, auth_info=True, user_info=True):
         if isinstance(number, str):
             self.number = number.replace('+', '')
             if self.number.startswith('8'):
@@ -62,11 +62,10 @@ class Wallet:
                         'Content-Type': 'application/json',
                         'Authorization': "Bearer {0}".format(self.token)}
         if isinstance(proxy, str):
-            self.proxy = {}
-            index = proxy.find('://')
-            if index > 0:
-                protocol = proxy[:index]
-                self.proxy[protocol] = proxy
+            if proxy != 'None':
+                self.proxy = {'https': proxy}
+            else:
+                self.proxy=None
         else:
             self.proxy=None
 
