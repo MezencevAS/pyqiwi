@@ -10,7 +10,7 @@ setup_requirements = ['pytest-runner', 'six', 'requests>=2.15,<3', 'parse>=1.8,<
 test_requirements = ['pytest', 'six', 'requests>=2.15,<3', 'parse>=1.8,<2', 'python-dateutil>=2.7,<3']
 
 setup(
-    name='proxy_qiwipy',
+    name='proxyqiwipy',
     version='1.0.1',
     author="Levent Duivel",
     include_package_data=True,
